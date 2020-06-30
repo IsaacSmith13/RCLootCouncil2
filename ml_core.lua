@@ -1350,8 +1350,7 @@ function RCLootCouncilML:ShouldAutoAward(item, quality)
 		addon:Print(format(L["Could not find 'player' in the group."], db.autoAwardBoETo))
 		return false
 	end
-	if db.autoAward and quality >= db.autoAwardLowerThreshold and quality <= db.autoAwardUpperThreshold
-		and IsEquippableItem(item) then
+	if db.autoAward and quality >= db.autoAwardLowerThreshold and quality <= db.autoAwardUpperThreshold then
 		if db.autoAwardLowerThreshold >= GetLootThreshold() or db.autoAwardLowerThreshold < 2 then
 			if UnitInRaid(db.autoAwardTo) or UnitInParty(db.autoAwardTo) then -- TEST perhaps use self.group?
 				return true, "normal", db.autoAwardTo
